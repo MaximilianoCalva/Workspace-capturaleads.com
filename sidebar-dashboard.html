@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sidebar - CapturaLeads</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 20px 0;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 700;
+            opacity: 0.9;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin: 5px 0;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-left: 4px solid white;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            min-width: 24px;
+        }
+
+        .nav-section {
+            padding: 20px 20px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            opacity: 0.7;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Toggle */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .sidebar-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Dashboard</h2>
+        </div>
+
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#dashboard" class="nav-link active">
+                        <span class="nav-icon">📊</span>
+                        <span>Resumen</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#leads" class="nav-link">
+                        <span class="nav-icon">👥</span>
+                        <span>Mis Leads</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#landing-pages" class="nav-link">
+                        <span class="nav-icon">📄</span>
+                        <span>Landing Pages</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#analytics" class="nav-link">
+                        <span class="nav-icon">📈</span>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-section">Configuración</div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#templates" class="nav-link">
+                        <span class="nav-icon">📧</span>
+                        <span>Templates Email</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#settings" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#help" class="nav-link">
+                        <span class="nav-icon">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
