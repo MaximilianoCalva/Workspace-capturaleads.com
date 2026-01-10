@@ -1,0 +1,246 @@
+<!-- HEADER DASHBOARD CAPTURALEADS - LOGGED IN (Usuario con sesión iniciada) -->
+<div class="capturaleads-header-logged-in-v2">
+    <div class="header-container">
+        <a href="https://capturaleads.com/" class="header-brand">
+            <span class="brand-icon">🎯</span>
+            <div class="brand-info">
+                <span class="brand-text">CapturaLeads</span>
+                <span class="brand-subtitle">Panel de Control</span>
+            </div>
+        </a>
+
+        <!-- Botones de acción -->
+        <div class="header-actions">
+            <!-- Workspace -->
+            <a href="https://workspace.capturaleads.com/user" class="btn-action btn-workspace-main"
+                title="Ir al Workspace">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                </svg>
+                <span class="btn-text">Workspace</span>
+            </a>
+
+            <!-- Cerrar Sesión -->
+            <a href="https://workspace.capturaleads.com/wp-login.php?action=logout&redirect_to=https%3A%2F%2Fworkspace.capturaleads.com&_wpnonce=370a1d5b25"
+                class="btn-action btn-logout" title="Cerrar sesión">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
+                </svg>
+                <span class="btn-text">Cerrar Sesión</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Variables de colores CapturaLeads */
+    .capturaleads-header-logged-in-v2 {
+        --cl-primary: #2966ff;
+        --cl-secondary: #764ba2;
+        --cl-white: #FFFFFF;
+        --cl-light-gray: #F5F5F5;
+        --cl-danger: #ef4444;
+        --cl-gradient: linear-gradient(135deg, #2966ff 0%, #764ba2 100%);
+    }
+
+    /* Reset básico */
+    .capturaleads-header-logged-in-v2 * {
+        box-sizing: border-box;
+    }
+
+    /* Contenedor principal */
+    .capturaleads-header-logged-in-v2 {
+        width: 100%;
+        background: var(--cl-white);
+        border-bottom: 1px solid #e8e8ff;
+        box-shadow: 0 1px 4px rgba(102, 126, 234, 0.06);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        padding: 5px 20px;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .capturaleads-header-logged-in-v2 .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        min-height: 40px;
+    }
+
+    /* Branding */
+    .capturaleads-header-logged-in-v2 .header-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+    }
+
+    .capturaleads-header-logged-in-v2 .header-brand:hover {
+        transform: translateY(-1px);
+    }
+
+    .capturaleads-header-logged-in-v2 .brand-icon {
+        font-size: 22px;
+        line-height: 1;
+    }
+
+    .capturaleads-header-logged-in-v2 .brand-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .capturaleads-header-logged-in-v2 .brand-text {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        color: #2966ff;
+        line-height: 1;
+    }
+
+    .capturaleads-header-logged-in-v2 .brand-subtitle {
+        font-size: 10px;
+        font-weight: 500;
+        color: #666;
+        letter-spacing: 0.3px;
+    }
+
+    /* Acciones del header */
+    .capturaleads-header-logged-in-v2 .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    /* Botones de acción */
+    .capturaleads-header-logged-in-v2 .btn-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        white-space: nowrap;
+        border: 1px solid transparent;
+    }
+
+    .capturaleads-header-logged-in-v2 .btn-action .icon {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex-shrink: 0;
+    }
+
+    /* Workspace Button */
+    .capturaleads-header-logged-in-v2 .btn-workspace-main {
+        background: #2966ff;
+        color: var(--cl-white);
+        box-shadow: 0 4px 15px rgba(41, 102, 255, 0.2);
+    }
+
+    .capturaleads-header-logged-in-v2 .btn-workspace-main:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(41, 102, 255, 0.35);
+    }
+
+    /* Logout Button */
+    .capturaleads-header-logged-in-v2 .btn-logout {
+        background: #fef2f2;
+        color: var(--cl-danger);
+        border-color: #fee2e2;
+    }
+
+    .capturaleads-header-logged-in-v2 .btn-logout:hover {
+        background: #fee2e2;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .capturaleads-header-logged-in-v2 {
+            padding: 8px 15px;
+        }
+
+        .capturaleads-header-logged-in-v2 .header-container {
+            min-height: 50px;
+        }
+
+        .capturaleads-header-logged-in-v2 .brand-icon {
+            font-size: 28px;
+        }
+
+        .capturaleads-header-logged-in-v2 .brand-text {
+            font-size: 18px;
+        }
+
+        .capturaleads-header-logged-in-v2 .brand-subtitle {
+            font-size: 10px;
+        }
+
+        .capturaleads-header-logged-in-v2 .btn-action {
+            padding: 9px 16px;
+            font-size: 13px;
+        }
+
+        .capturaleads-header-logged-in-v2 .header-actions {
+            gap: 8px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .capturaleads-header-logged-in-v2 {
+            padding: 8px 12px;
+        }
+
+        .capturaleads-header-logged-in-v2 .brand-icon {
+            font-size: 24px;
+        }
+
+        .capturaleads-header-logged-in-v2 .brand-text {
+            font-size: 16px;
+        }
+
+        .capturaleads-header-logged-in-v2 .brand-subtitle {
+            display: none;
+        }
+
+        .capturaleads-header-logged-in-v2 .btn-text {
+            display: none;
+        }
+
+        .capturaleads-header-logged-in-v2 .btn-action {
+            padding: 10px;
+            min-width: 44px;
+            justify-content: center;
+        }
+
+        .capturaleads-header-logged-in-v2 .header-actions {
+            gap: 6px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .capturaleads-header-logged-in-v2 .brand-info {
+            display: none;
+        }
+    }
+</style>

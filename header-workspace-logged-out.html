@@ -1,0 +1,202 @@
+<!-- HEADER DASHBOARD CAPTURALEADS - LOGGED OUT (Usuario sin sesión) -->
+<div class="capturaleads-header-logged-out">
+    <div class="header-container">
+        <a href="https://capturaleads.com/" class="header-brand">
+            <span class="brand-icon">🎯</span>
+            <div class="brand-info">
+                <span class="brand-text">CapturaLeads</span>
+                <span class="brand-subtitle">Gestión de Leads</span>
+            </div>
+        </a>
+
+        <!-- Botón de acceso -->
+        <div class="header-actions">
+            <a href="https://workspace.capturaleads.com/login/" class="btn-workspace">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3" />
+                </svg>
+                <span class="btn-text">Acceder a Workspace</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Variables de colores CapturaLeads */
+    .capturaleads-header-logged-out {
+        --cl-primary: #2966ff;
+        --cl-secondary: #764ba2;
+        --cl-white: #FFFFFF;
+        --cl-light-gray: #F5F5F5;
+        --cl-gradient: linear-gradient(135deg, #2966ff 0%, #764ba2 100%);
+    }
+
+    /* Reset básico */
+    .capturaleads-header-logged-out * {
+        box-sizing: border-box;
+    }
+
+    /* Contenedor principal */
+    .capturaleads-header-logged-out {
+        width: 100%;
+        background: var(--cl-white);
+        border-bottom: 1px solid #e8e8ff;
+        box-shadow: 0 1px 4px rgba(102, 126, 234, 0.06);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        padding: 5px 20px;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .capturaleads-header-logged-out .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        min-height: 40px;
+    }
+
+    /* Branding */
+    .capturaleads-header-logged-out .header-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+    }
+
+    .capturaleads-header-logged-out .header-brand:hover {
+        transform: translateY(-1px);
+    }
+
+    .capturaleads-header-logged-out .brand-icon {
+        font-size: 22px;
+        line-height: 1;
+    }
+
+    .capturaleads-header-logged-out .brand-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .capturaleads-header-logged-out .brand-text {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        color: #2966ff;
+        line-height: 1;
+    }
+
+    .capturaleads-header-logged-out .brand-subtitle {
+        font-size: 10px;
+        font-weight: 500;
+        color: #666;
+        letter-spacing: 0.3px;
+    }
+
+    /* Acciones del header */
+    .capturaleads-header-logged-out .header-actions {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Botón Workspace */
+    .capturaleads-header-logged-out .btn-workspace {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 700;
+        background: #2966ff;
+        color: var(--cl-white);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(41, 102, 255, 0.2);
+    }
+
+    .capturaleads-header-logged-out .btn-workspace:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(41, 102, 255, 0.35);
+    }
+
+    .capturaleads-header-logged-out .btn-workspace .icon {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .capturaleads-header-logged-out {
+            padding: 4px 15px;
+        }
+
+        .capturaleads-header-logged-out .header-container {
+            min-height: 36px;
+        }
+
+        .capturaleads-header-logged-out .brand-icon {
+            font-size: 24px;
+        }
+
+        .capturaleads-header-logged-out .brand-text {
+            font-size: 16px;
+        }
+
+        .capturaleads-header-logged-out .brand-subtitle {
+            font-size: 10px;
+        }
+
+        .capturaleads-header-logged-out .btn-workspace {
+            padding: 6px 12px;
+            font-size: 11px;
+        }
+
+        .capturaleads-header-logged-out .btn-workspace .icon {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .capturaleads-header-logged-out {
+            padding: 8px 12px;
+        }
+
+        .capturaleads-header-logged-out .brand-icon {
+            font-size: 24px;
+        }
+
+        .capturaleads-header-logged-out .brand-text {
+            font-size: 16px;
+        }
+
+        .capturaleads-header-logged-out .brand-subtitle {
+            display: none;
+        }
+
+        .capturaleads-header-logged-out .btn-workspace .btn-text {
+            display: none;
+        }
+
+        .capturaleads-header-logged-out .btn-workspace {
+            padding: 10px;
+            min-width: 44px;
+            justify-content: center;
+        }
+    }
+</style>

@@ -1,0 +1,259 @@
+<!-- ACCESO AL WORKSPACE - LOGGED OUT (Usuario sin sesión) -->
+<div class="workspace-access-logged-out">
+    <div class="access-container">
+        <div class="access-header">
+            <h2 class="access-title">Accede a tu Workspace</h2>
+            <p class="access-description">Inicia sesión o regístrate para gestionar tus leads</p>
+        </div>
+
+        <div class="access-card">
+            <!-- Pestañas -->
+            <div class="tabs">
+                <button class="tab-button active" onclick="switchTab('login')">
+                    <span class="tab-icon">🔑</span>
+                    <span class="tab-text">Iniciar Sesión</span>
+                </button>
+                <button class="tab-button" onclick="switchTab('register')">
+                    <span class="tab-icon">✨</span>
+                    <span class="tab-text">Registrarte</span>
+                </button>
+            </div>
+
+            <!-- Contenido de las pestañas -->
+            <div class="tab-content">
+                <!-- Pestaña de Login -->
+                <div id="login-tab" class="tab-pane active">
+                    <p class="tab-description">¿Ya tienes una cuenta? Accede a tu workspace</p>
+                    <div class="form-container">
+                        [user_registration_login]
+                    </div>
+                </div>
+
+                <!-- Pestaña de Registro -->
+                <div id="register-tab" class="tab-pane">
+                    <p class="tab-description">¿Nuevo en CapturaLeads? Regístrate gratis</p>
+                    <div class="form-container">
+                        [user_registration_form id="28"]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Variables de colores CapturaLeads */
+    .workspace-access-logged-out {
+        --cl-primary: #2966ff;
+        --cl-white: #FFFFFF;
+        --cl-light-gray: #F5F5F5;
+        --cl-text: #333;
+        --cl-text-light: #666;
+        --cl-border: #e0e0e0;
+    }
+
+    /* Reset básico */
+    .workspace-access-logged-out * {
+        box-sizing: border-box;
+    }
+
+    /* Contenedor principal */
+    .workspace-access-logged-out {
+        width: 100%;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .workspace-access-logged-out .access-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Header */
+    .workspace-access-logged-out .access-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .workspace-access-logged-out .access-title {
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--cl-primary);
+        margin-bottom: 12px;
+        line-height: 1.2;
+    }
+
+    .workspace-access-logged-out .access-description {
+        font-size: 16px;
+        color: var(--cl-text-light);
+        font-weight: 400;
+    }
+
+    /* Tarjeta principal */
+    .workspace-access-logged-out .access-card {
+        background: var(--cl-white);
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(41, 102, 255, 0.08);
+        overflow: hidden;
+    }
+
+    /* Pestañas */
+    .workspace-access-logged-out .tabs {
+        display: flex;
+        border-bottom: 2px solid var(--cl-light-gray);
+    }
+
+    .workspace-access-logged-out .tab-button {
+        flex: 1;
+        padding: 18px 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--cl-text-light);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        position: relative;
+    }
+
+    .workspace-access-logged-out .tab-button::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--cl-primary);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .workspace-access-logged-out .tab-button.active {
+        color: var(--cl-primary);
+    }
+
+    .workspace-access-logged-out .tab-button.active::after {
+        transform: scaleX(1);
+    }
+
+    .workspace-access-logged-out .tab-button:hover {
+        background: rgba(41, 102, 255, 0.05);
+    }
+
+    .workspace-access-logged-out .tab-icon {
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    /* Contenido de pestañas */
+    .workspace-access-logged-out .tab-content {
+        padding: 35px;
+    }
+
+    .workspace-access-logged-out .tab-pane {
+        display: none;
+    }
+
+    .workspace-access-logged-out .tab-pane.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .workspace-access-logged-out .tab-description {
+        font-size: 14px;
+        color: var(--cl-text-light);
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .workspace-access-logged-out .form-container {
+        margin-top: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .workspace-access-logged-out {
+            padding: 40px 15px;
+        }
+
+        .workspace-access-logged-out .access-title {
+            font-size: 28px;
+        }
+
+        .workspace-access-logged-out .access-description {
+            font-size: 15px;
+        }
+
+        .workspace-access-logged-out .tab-content {
+            padding: 25px;
+        }
+
+        .workspace-access-logged-out .tab-button {
+            padding: 15px 16px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .workspace-access-logged-out {
+            padding: 30px 12px;
+        }
+
+        .workspace-access-logged-out .access-title {
+            font-size: 24px;
+        }
+
+        .workspace-access-logged-out .tab-content {
+            padding: 20px;
+        }
+
+        .workspace-access-logged-out .tab-text {
+            display: none;
+        }
+
+        .workspace-access-logged-out .tab-icon {
+            font-size: 24px;
+        }
+
+        .workspace-access-logged-out .tab-button {
+            padding: 12px;
+        }
+    }
+</style>
+
+<script>
+    function switchTab(tabName) {
+        // Remover clase active de todos los botones y paneles
+        const buttons = document.querySelectorAll('.workspace-access-logged-out .tab-button');
+        const panes = document.querySelectorAll('.workspace-access-logged-out .tab-pane');
+
+        buttons.forEach(btn => btn.classList.remove('active'));
+        panes.forEach(pane => pane.classList.remove('active'));
+
+        // Agregar clase active al botón y panel correspondiente
+        if (tabName === 'login') {
+            buttons[0].classList.add('active');
+            document.getElementById('login-tab').classList.add('active');
+        } else {
+            buttons[1].classList.add('active');
+            document.getElementById('register-tab').classList.add('active');
+        }
+    }
+</script>
