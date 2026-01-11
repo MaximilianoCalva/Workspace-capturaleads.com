@@ -8,7 +8,8 @@
 
     .footer-workspace {
         background: #0a0e27;
-        color: rgba(255, 255, 255, 0.5);
+        color: white;
+        /* Changed to white */
         padding: 15px 20px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -37,13 +38,15 @@
     }
 
     .footer-links a {
-        color: rgba(255, 255, 255, 0.5);
+        color: white;
+        /* Changed to white */
         text-decoration: none;
-        transition: color 0.3s ease;
+        transition: opacity 0.3s ease;
     }
 
     .footer-links a:hover {
-        color: white;
+        opacity: 0.8;
+        /* Changed hover effect to opacity since color is already white */
     }
 
     /* Responsive */
@@ -67,7 +70,6 @@
         </div>
 
         <ul class="footer-links">
-            <li><a href="https://status.capturaleads.com/" target="_blank">Status</a></li>
             <li><a href="https://capturaleads.com/privacidad/" target="_blank">Privacidad</a></li>
             <li><a href="https://capturaleads.com/terminos/" target="_blank">Términos</a></li>
             <li><a href="https://capturaleads.com/contacto/" target="_blank">Ayuda</a></li>
