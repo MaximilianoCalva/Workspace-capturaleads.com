@@ -108,9 +108,23 @@
 
     @media (max-width: 576px) {
 
+        /* Ocultar texto de botones en móvil */
         .btn-workspace span:last-child,
-        .btn-logout span:last-child {
+        .btn-logout span:last-child,
+        .btn-home span:last-child {
             display: none;
+        }
+
+        /* Ocultar botón de nuestros trabajos en móvil muy pequeño para ahorrar espacio */
+        .btn-portfolio {
+            display: none;
+        }
+    }
+
+    /* Mostrar botón portfolio en tablet y escritorio */
+    @media (min-width: 577px) {
+        .btn-portfolio {
+            display: inline-flex;
         }
     }
 </style>
