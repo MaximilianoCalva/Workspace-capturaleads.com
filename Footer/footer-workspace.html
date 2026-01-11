@@ -1,4 +1,4 @@
-<!-- FOOTER WORKSPACE -->
+<!-- FOOTER WORKSPACE (COMPACT) -->
 <style>
     .footer-workspace * {
         margin: 0;
@@ -8,155 +8,69 @@
 
     .footer-workspace {
         background: #0a0e27;
-        color: white;
-        padding: 40px 20px 20px;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 15px 20px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
         margin-top: auto;
+        font-size: 12px;
     }
 
     .footer-container {
-        max-width: 1200px;
+        max-width: 1600px;
         margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        gap: 40px;
-        margin-bottom: 30px;
-    }
-
-    .footer-section h4 {
-        font-size: 16px;
-        margin-bottom: 20px;
-        font-weight: 700;
-        background: linear-gradient(135deg, #2966ff 0%, #00d4ff 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .footer-logo {
+    .footer-left {
         display: flex;
         align-items: center;
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-
-    .footer-logo-icon {
-        font-size: 28px;
-        filter: drop-shadow(0 0 12px rgba(41, 102, 255, 0.5));
-    }
-
-    .footer-logo-text {
-        font-size: 20px;
-        font-weight: 800;
-        background: linear-gradient(135deg, #2966ff 0%, #00d4ff 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .footer-description {
-        font-size: 14px;
-        line-height: 1.6;
-        color: rgba(255, 255, 255, 0.6);
+        gap: 15px;
     }
 
     .footer-links {
+        display: flex;
+        gap: 20px;
         list-style: none;
     }
 
-    .footer-links li {
-        margin-bottom: 10px;
-    }
-
     .footer-links a {
-        color: rgba(255, 255, 255, 0.6);
-        text-decoration: none;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        display: inline-block;
-    }
-
-    .footer-links a:hover {
-        color: #2966ff;
-        padding-left: 5px;
-    }
-
-    .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 20px;
-        text-align: center;
-    }
-
-    .footer-bottom p {
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 13px;
-    }
-
-    .footer-bottom a {
         color: rgba(255, 255, 255, 0.5);
         text-decoration: none;
         transition: color 0.3s ease;
     }
 
-    .footer-bottom a:hover {
-        color: #2966ff;
+    .footer-links a:hover {
+        color: white;
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-        .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 30px;
+    @media (max-width: 576px) {
+        .footer-container {
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
         }
 
-        .footer-workspace {
-            padding: 30px 15px 15px;
+        .footer-links {
+            gap: 15px;
         }
     }
 </style>
 
 <footer class="footer-workspace">
     <div class="footer-container">
-        <div class="footer-grid">
-            <!-- About Section -->
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <span class="footer-logo-icon">🎯</span>
-                    <span class="footer-logo-text">CapturaLeads</span>
-                </div>
-                <p class="footer-description">
-                    Workspace profesional para gestionar tus leads. Visualiza métricas, organiza por servicio
-                    y toma decisiones basadas en datos reales.
-                </p>
-            </div>
-
-            <!-- Quick Links -->
-            <div class="footer-section">
-                <h4>Enlaces</h4>
-                <ul class="footer-links">
-                    <li><a href="https://capturaleads.com/">Sitio Web</a></li>
-                    <li><a href="https://capturaleads.com/precios/">Precios</a></li>
-                    <li><a href="https://capturaleads.com/contacto/">Contacto</a></li>
-                    <li><a href="https://capturaleads.com/preguntas-frecuentes/">FAQ</a></li>
-                </ul>
-            </div>
-
-            <!-- Legal -->
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul class="footer-links">
-                    <li><a href="https://capturaleads.com/terminos/">Términos</a></li>
-                    <li><a href="https://capturaleads.com/privacidad/">Privacidad</a></li>
-                </ul>
-            </div>
+        <div class="footer-left">
+            <span>&copy; 2026 CapturaLeads</span>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 CapturaLeads Workspace. Todos los derechos reservados.</p>
-        </div>
+        <ul class="footer-links">
+            <li><a href="https://status.capturaleads.com/" target="_blank">Status</a></li>
+            <li><a href="https://capturaleads.com/privacidad/" target="_blank">Privacidad</a></li>
+            <li><a href="https://capturaleads.com/terminos/" target="_blank">Términos</a></li>
+            <li><a href="https://capturaleads.com/contacto/" target="_blank">Ayuda</a></li>
+        </ul>
     </div>
 </footer>
