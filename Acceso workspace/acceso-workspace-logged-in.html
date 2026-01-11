@@ -1,0 +1,235 @@
+<!-- ACCESO AL WORKSPACE - LOGGED IN (Usuario con sesión activa) -->
+<div class="workspace-access-logged-in">
+    <div class="access-container">
+        <div class="welcome-card">
+            <div class="welcome-icon">👋</div>
+            <h2 class="welcome-title">¡Bienvenido de vuelta!</h2>
+            <p class="welcome-description">Ya tienes una sesión activa en tu workspace</p>
+
+            <div class="action-buttons">
+                <a href="https://workspace.capturaleads.com/user" class="btn-primary">
+                    <span class="btn-icon">📊</span>
+                    <span>Ir a mi Workspace</span>
+                </a>
+                <a href="https://capturaleads.com/" class="btn-secondary">
+                    <span class="btn-icon">🏠</span>
+                    <span>Volver al Inicio</span>
+                </a>
+            </div>
+
+            <div class="quick-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Landing Pages</div>
+                        <div class="stat-value">Activas</div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Leads</div>
+                        <div class="stat-value">En tiempo real</div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Automatización</div>
+                        <div class="stat-value">Funcionando</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .workspace-access-logged-in * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .workspace-access-logged-in {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+        background: #0a0e27;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .workspace-access-logged-in .access-container {
+        max-width: 700px;
+        width: 100%;
+    }
+
+    .workspace-access-logged-in .welcome-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    .workspace-access-logged-in .welcome-icon {
+        font-size: 64px;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 20px rgba(41, 102, 255, 0.3));
+    }
+
+    .workspace-access-logged-in .welcome-title {
+        font-size: 36px;
+        font-weight: 900;
+        background: linear-gradient(135deg, #2966ff 0%, #00d4ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 12px;
+    }
+
+    .workspace-access-logged-in .welcome-description {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 40px;
+    }
+
+    .workspace-access-logged-in .action-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+    }
+
+    .workspace-access-logged-in .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #2966ff 0%, #1a4fd8 100%);
+        color: white;
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(41, 102, 255, 0.4);
+    }
+
+    .workspace-access-logged-in .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(41, 102, 255, 0.5);
+    }
+
+    .workspace-access-logged-in .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        color: white;
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .workspace-access-logged-in .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-3px);
+    }
+
+    .workspace-access-logged-in .btn-icon {
+        font-size: 20px;
+    }
+
+    .workspace-access-logged-in .quick-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .workspace-access-logged-in .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .workspace-access-logged-in .stat-icon {
+        font-size: 32px;
+        filter: drop-shadow(0 0 15px rgba(41, 102, 255, 0.3));
+    }
+
+    .workspace-access-logged-in .stat-info {
+        text-align: left;
+    }
+
+    .workspace-access-logged-in .stat-label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 4px;
+    }
+
+    .workspace-access-logged-in .stat-value {
+        font-size: 14px;
+        font-weight: 700;
+        color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .workspace-access-logged-in {
+            padding: 40px 15px;
+        }
+
+        .workspace-access-logged-in .welcome-card {
+            padding: 40px 25px;
+        }
+
+        .workspace-access-logged-in .welcome-title {
+            font-size: 28px;
+        }
+
+        .workspace-access-logged-in .welcome-description {
+            font-size: 16px;
+        }
+
+        .workspace-access-logged-in .quick-stats {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .workspace-access-logged-in .welcome-icon {
+            font-size: 48px;
+        }
+
+        .workspace-access-logged-in .welcome-title {
+            font-size: 24px;
+        }
+
+        .workspace-access-logged-in .action-buttons {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .workspace-access-logged-in .btn-primary,
+        .workspace-access-logged-in .btn-secondary {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
