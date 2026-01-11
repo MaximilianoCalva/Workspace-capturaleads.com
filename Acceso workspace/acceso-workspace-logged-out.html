@@ -2,7 +2,8 @@
 <div class="workspace-access-logged-out">
     <div class="access-container">
         <div class="access-header">
-            <h2 class="access-title">Accede a tu Workspace</h2>
+            <div class="header-icon">🎯</div>
+            <h2 class="access-title">Accede a tu <span class="gradient-text">Workspace</span></h2>
             <p class="access-description">Inicia sesión o regístrate para gestionar tus leads</p>
         </div>
 
@@ -38,36 +39,45 @@
                 </div>
             </div>
         </div>
+
+        <!-- Features -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">Acceso instantáneo</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-text">100% seguro</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <div class="feature-text">Dashboard completo</div>
+            </div>
+        </div>
     </div>
 </div>
 
 <style>
-    /* Variables de colores CapturaLeads */
-    .workspace-access-logged-out {
-        --cl-primary: #2966ff;
-        --cl-white: #FFFFFF;
-        --cl-light-gray: #F5F5F5;
-        --cl-text: #333;
-        --cl-text-light: #666;
-        --cl-border: #e0e0e0;
-    }
-
-    /* Reset básico */
     .workspace-access-logged-out * {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
     }
 
-    /* Contenedor principal */
     .workspace-access-logged-out {
-        width: 100%;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 60px 20px;
-        background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+        background: #0a0e27;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
 
     .workspace-access-logged-out .access-container {
         max-width: 600px;
-        margin: 0 auto;
+        width: 100%;
     }
 
     /* Header */
@@ -76,32 +86,47 @@
         margin-bottom: 40px;
     }
 
+    .workspace-access-logged-out .header-icon {
+        font-size: 56px;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 20px rgba(41, 102, 255, 0.5));
+    }
+
     .workspace-access-logged-out .access-title {
         font-size: 36px;
-        font-weight: 800;
-        color: var(--cl-primary);
+        font-weight: 900;
+        color: white;
         margin-bottom: 12px;
         line-height: 1.2;
     }
 
+    .workspace-access-logged-out .gradient-text {
+        background: linear-gradient(135deg, #2966ff 0%, #00d4ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
     .workspace-access-logged-out .access-description {
         font-size: 16px;
-        color: var(--cl-text-light);
-        font-weight: 400;
+        color: rgba(255, 255, 255, 0.7);
     }
 
     /* Tarjeta principal */
     .workspace-access-logged-out .access-card {
-        background: var(--cl-white);
-        border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(41, 102, 255, 0.08);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
         overflow: hidden;
+        margin-bottom: 30px;
     }
 
     /* Pestañas */
     .workspace-access-logged-out .tabs {
         display: flex;
-        border-bottom: 2px solid var(--cl-light-gray);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.03);
     }
 
     .workspace-access-logged-out .tab-button {
@@ -112,7 +137,7 @@
         cursor: pointer;
         font-size: 15px;
         font-weight: 600;
-        color: var(--cl-text-light);
+        color: rgba(255, 255, 255, 0.6);
         transition: all 0.3s ease;
         display: flex;
         align-items: center;
@@ -124,17 +149,18 @@
     .workspace-access-logged-out .tab-button::after {
         content: '';
         position: absolute;
-        bottom: -2px;
+        bottom: -1px;
         left: 0;
         right: 0;
         height: 2px;
-        background: var(--cl-primary);
+        background: linear-gradient(135deg, #2966ff 0%, #00d4ff 100%);
         transform: scaleX(0);
         transition: transform 0.3s ease;
     }
 
     .workspace-access-logged-out .tab-button.active {
-        color: var(--cl-primary);
+        color: white;
+        background: rgba(41, 102, 255, 0.1);
     }
 
     .workspace-access-logged-out .tab-button.active::after {
@@ -142,7 +168,8 @@
     }
 
     .workspace-access-logged-out .tab-button:hover {
-        background: rgba(41, 102, 255, 0.05);
+        background: rgba(41, 102, 255, 0.15);
+        color: white;
     }
 
     .workspace-access-logged-out .tab-icon {
@@ -161,7 +188,7 @@
 
     .workspace-access-logged-out .tab-pane.active {
         display: block;
-        animation: fadeIn 0.3s ease;
+        animation: fadeIn 0.4s ease;
     }
 
     @keyframes fadeIn {
@@ -178,13 +205,47 @@
 
     .workspace-access-logged-out .tab-description {
         font-size: 14px;
-        color: var(--cl-text-light);
+        color: rgba(255, 255, 255, 0.6);
         text-align: center;
         margin-bottom: 25px;
     }
 
     .workspace-access-logged-out .form-container {
         margin-top: 20px;
+    }
+
+    /* Features Grid */
+    .workspace-access-logged-out .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .workspace-access-logged-out .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .workspace-access-logged-out .feature-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(41, 102, 255, 0.3);
+    }
+
+    .workspace-access-logged-out .feature-icon {
+        font-size: 24px;
+        filter: drop-shadow(0 0 10px rgba(41, 102, 255, 0.3));
+    }
+
+    .workspace-access-logged-out .feature-text {
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.8);
     }
 
     /* Responsive */
@@ -197,23 +258,18 @@
             font-size: 28px;
         }
 
-        .workspace-access-logged-out .access-description {
-            font-size: 15px;
-        }
-
         .workspace-access-logged-out .tab-content {
             padding: 25px;
         }
 
-        .workspace-access-logged-out .tab-button {
-            padding: 15px 16px;
-            font-size: 14px;
+        .workspace-access-logged-out .features-grid {
+            grid-template-columns: 1fr;
         }
     }
 
-    @media (max-width: 480px) {
-        .workspace-access-logged-out {
-            padding: 30px 12px;
+    @media (max-width: 576px) {
+        .workspace-access-logged-out .header-icon {
+            font-size: 48px;
         }
 
         .workspace-access-logged-out .access-title {
@@ -233,21 +289,19 @@
         }
 
         .workspace-access-logged-out .tab-button {
-            padding: 12px;
+            padding: 15px;
         }
     }
 </style>
 
 <script>
     function switchTab(tabName) {
-        // Remover clase active de todos los botones y paneles
         const buttons = document.querySelectorAll('.workspace-access-logged-out .tab-button');
         const panes = document.querySelectorAll('.workspace-access-logged-out .tab-pane');
 
         buttons.forEach(btn => btn.classList.remove('active'));
         panes.forEach(pane => pane.classList.remove('active'));
 
-        // Agregar clase active al botón y panel correspondiente
         if (tabName === 'login') {
             buttons[0].classList.add('active');
             document.getElementById('login-tab').classList.add('active');
