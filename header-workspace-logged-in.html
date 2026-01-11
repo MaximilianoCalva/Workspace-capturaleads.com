@@ -22,25 +22,24 @@
         align-items: center;
     }
 
-    .logo-section {
-        display: flex;
+    .btn-home {
+        display: inline-flex;
         align-items: center;
-        gap: 10px;
-    }
-
-    .logo-icon {
-        font-size: 20px;
-        filter: drop-shadow(0 0 8px rgba(41, 102, 255, 0.5));
-    }
-
-    .logo-text {
-        font-size: 16px;
-        font-weight: 800;
-        background: linear-gradient(135deg, #2966ff 0%, #00d4ff 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.8);
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
         text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .btn-home:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
     }
 
     .header-actions {
@@ -115,10 +114,10 @@
 
 <header class="header-workspace">
     <div class="header-container">
-        <div class="logo-section">
-            <span class="logo-icon">🎯</span>
-            <a href="https://workspace.capturaleads.com/" class="logo-text">CapturaLeads</a>
-        </div>
+        <a href="https://capturaleads.com/" class="btn-home">
+            <span>�</span>
+            <span>Página Principal</span>
+        </a>
 
         <div class="header-actions">
             <a href="https://workspace.capturaleads.com/" class="btn-workspace">
