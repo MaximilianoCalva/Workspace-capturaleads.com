@@ -1,151 +1,162 @@
-<!-- FOOTER WORKSPACE CAPTURALEADS -->
-<div class="workspace-footer">
-    <div class="footer-container">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <span class="footer-icon">🎯</span>
-                <span class="footer-text">CapturaLeads</span>
-            </div>
-
-            <div class="footer-links">
-                <a href="https://capturaleads.com/ayuda/" class="footer-link">Ayuda</a>
-                <a href="https://capturaleads.com/terminos/" class="footer-link">Términos</a>
-                <a href="https://capturaleads.com/privacidad/" class="footer-link">Privacidad</a>
-                <a href="https://capturaleads.com/contacto/" class="footer-link">Contacto</a>
-            </div>
-
-            <div class="footer-copyright">
-                <p>© 2026 CapturaLeads. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
+<!-- FOOTER WORKSPACE -->
 <style>
-    /* Variables de colores CapturaLeads */
-    .workspace-footer {
-        --cl-primary: #2966ff;
-        --cl-white: #FFFFFF;
-        --cl-light-gray: #F5F5F5;
-        --cl-text-gray: #666;
-    }
-
-    /* Reset básico */
-    .workspace-footer * {
+    .footer-workspace * {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
     }
 
-    /* Contenedor principal */
-    .workspace-footer {
-        width: 100%;
-        background: var(--cl-white);
-        border-top: 1px solid #e8e8ff;
+    .footer-workspace {
+        background: #0a0e27;
+        color: white;
+        padding: 40px 20px 20px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        padding: 20px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: auto;
     }
 
-    .workspace-footer .footer-container {
-        max-width: 1400px;
+    .footer-container {
+        max-width: 1200px;
         margin: 0 auto;
     }
 
-    .workspace-footer .footer-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 30px;
-        flex-wrap: wrap;
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 30px;
     }
 
-    /* Brand */
-    .workspace-footer .footer-brand {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .workspace-footer .footer-icon {
-        font-size: 20px;
-        line-height: 1;
-    }
-
-    .workspace-footer .footer-text {
+    .footer-section h4 {
         font-size: 16px;
+        margin-bottom: 20px;
         font-weight: 700;
-        color: var(--cl-primary);
+        background: linear-gradient(135deg, #2966ff 0%, #00d4ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
-    /* Links */
-    .workspace-footer .footer-links {
+    .footer-logo {
         display: flex;
         align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 15px;
     }
 
-    .workspace-footer .footer-link {
-        color: var(--cl-text-gray);
+    .footer-logo-icon {
+        font-size: 28px;
+        filter: drop-shadow(0 0 12px rgba(41, 102, 255, 0.5));
+    }
+
+    .footer-logo-text {
+        font-size: 20px;
+        font-weight: 800;
+        background: linear-gradient(135deg, #2966ff 0%, #00d4ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .footer-description {
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.6);
         text-decoration: none;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .footer-links a:hover {
+        color: #2966ff;
+        padding-left: 5px;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        color: rgba(255, 255, 255, 0.5);
         font-size: 13px;
-        font-weight: 500;
-        transition: color 0.2s ease;
     }
 
-    .workspace-footer .footer-link:hover {
-        color: var(--cl-primary);
+    .footer-bottom a {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        transition: color 0.3s ease;
     }
 
-    /* Copyright */
-    .workspace-footer .footer-copyright {
-        color: var(--cl-text-gray);
-        font-size: 12px;
-    }
-
-    .workspace-footer .footer-copyright p {
-        margin: 0;
+    .footer-bottom a:hover {
+        color: #2966ff;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-        .workspace-footer {
-            padding: 15px 15px;
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
 
-        .workspace-footer .footer-content {
-            flex-direction: column;
-            text-align: center;
-            gap: 15px;
-        }
-
-        .workspace-footer .footer-links {
-            gap: 15px;
-        }
-
-        .workspace-footer .footer-link {
-            font-size: 12px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .workspace-footer {
-            padding: 12px 12px;
-        }
-
-        .workspace-footer .footer-links {
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .workspace-footer .footer-icon {
-            font-size: 18px;
-        }
-
-        .workspace-footer .footer-text {
-            font-size: 14px;
-        }
-
-        .workspace-footer .footer-copyright {
-            font-size: 11px;
+        .footer-workspace {
+            padding: 30px 15px 15px;
         }
     }
 </style>
+
+<footer class="footer-workspace">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <!-- About Section -->
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <span class="footer-logo-icon">🎯</span>
+                    <span class="footer-logo-text">CapturaLeads</span>
+                </div>
+                <p class="footer-description">
+                    Workspace profesional para gestionar tus leads. Visualiza métricas, organiza por servicio
+                    y toma decisiones basadas en datos reales.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4>Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="https://capturaleads.com/">Sitio Web</a></li>
+                    <li><a href="https://capturaleads.com/precios/">Precios</a></li>
+                    <li><a href="https://capturaleads.com/contacto/">Contacto</a></li>
+                    <li><a href="https://capturaleads.com/preguntas-frecuentes/">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="https://capturaleads.com/terminos/">Términos</a></li>
+                    <li><a href="https://capturaleads.com/privacidad/">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 CapturaLeads Workspace. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
