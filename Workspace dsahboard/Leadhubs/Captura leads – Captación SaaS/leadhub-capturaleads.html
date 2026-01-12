@@ -1,0 +1,363 @@
+<!-- LEADHUB: CAPTURALEADS BRAND -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+</style>
+
+<div class="w-full">
+
+    <!-- Header -->
+    <header class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+            <div class="flex items-center gap-3 mb-2">
+                <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Captura leads – Captación SaaS</h1>
+                <span
+                    class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 border border-blue-200 uppercase tracking-wide">LeadHub</span>
+            </div>
+            <p class="text-slate-500 text-sm">Gestiona y da seguimiento a todos tus leads capturados en tiempo real.</p>
+        </div>
+
+        <div class="flex gap-3">
+            <button onclick="exportTableToCSV()"
+                class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-bold hover:bg-slate-50 transition-colors flex items-center gap-2">
+                <span>📥</span> Exportar CSV
+            </button>
+        </div>
+    </header>
+
+    <!-- Stats Grid -->
+    <!-- Stats Grid -->
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Stat 1: Total Leads -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Total Leads</p>
+            <div class="flex items-end justify-between">
+                <span id="stat-total-leads" class="text-3xl font-extrabold text-slate-900">-</span>
+            </div>
+        </div>
+        <!-- Stat 2: Leads Today -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Leads Hoy</p>
+            <div class="flex items-end justify-between">
+                <span id="stat-leads-today" class="text-3xl font-extrabold text-slate-900">-</span>
+            </div>
+        </div>
+        <!-- Stat 3: Last 7 Days -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Últimos 7 Días</p>
+            <div class="flex items-end justify-between">
+                <span id="stat-last-7-days" class="text-3xl font-extrabold text-slate-900">-</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filters & Search -->
+    <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 mb-6 flex flex-col md:flex-row gap-4">
+        <div class="relative flex-grow">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">🔍</span>
+            <input id="search-input" type="text"
+                placeholder="Buscar por nombre, email, teléfono de la campaña Captación SaaS..."
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                onkeyup="handleSearch()">
+        </div>
+    </div>
+
+    <!-- Leads Table -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-gray-100">
+                        <th class="text-left py-4 px-6 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                            Nombre</th>
+                        <th class="text-left py-4 px-6 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                            Teléfono</th>
+                        <th class="text-left py-4 px-6 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                            Correo</th>
+                        <th class="text-left py-4 px-6 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                            Acepto</th>
+                        <th class="text-left py-4 px-6 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                            Form_Name</th>
+                        <th class="text-left py-4 px-6 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                            Fecha_Hora</th>
+                        <th class="text-left py-4 px-6 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                            Campaña</th>
+                    </tr>
+                </thead>
+                <tbody id="leads-table-body" class="divide-y divide-gray-50">
+                    <!-- Data will be loaded via API -->
+                </tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination-container" class="p-4 border-t border-gray-100 flex items-center justify-between">
+            <!-- Dynamic Pagination will be rendered here -->
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // Configuration
+    const API_URL = "https://script.google.com/macros/s/AKfycbykoQMKX5o9XnndKb9b5KyMzU_h0p2w5FtNN2S_6C1P14vKtFcgvAJhNMvhLyeEB7SBkA/exec";
+    const TABLE_BODY_ID = "leads-table-body";
+    const ITEMS_PER_PAGE = 10;
+
+    // State
+    let allLeads = [];
+    let filteredLeads = [];
+    let currentPage = 1;
+
+    // DOM Elements
+    const tableBody = document.getElementById(TABLE_BODY_ID);
+    const searchInput = document.getElementById("search-input");
+    const paginationContainer = document.getElementById("pagination-container");
+
+    // Initial Load
+    document.addEventListener("DOMContentLoaded", () => {
+        fetchLeads();
+    });
+
+    // 1. Fetch Function
+    async function fetchLeads() {
+        renderLoading();
+
+        try {
+            const response = await fetch(API_URL);
+            const data = await response.json();
+
+            if (data.status === "error") {
+                renderError(data.message);
+                return;
+            }
+
+            if (!data || data.length === 0) {
+                renderEmpty();
+                updateStats([]); // Clear stats
+                return;
+            }
+
+            // Success
+            allLeads = data; // Store raw data
+            filteredLeads = [...allLeads]; // Initialize filtered list
+
+            updateStats(allLeads);
+            renderPage(1); // Render first page
+
+        } catch (error) {
+            console.error("Error fetching leads:", error);
+            renderError("No se pudieron cargar los datos. Verifica tu conexión.");
+        }
+    }
+
+    // 2. Render Page (Pagination Logic)
+    function renderPage(page) {
+        currentPage = page;
+        const start = (page - 1) * ITEMS_PER_PAGE;
+        const end = start + ITEMS_PER_PAGE;
+        const leadsToShow = filteredLeads.slice(start, end);
+
+        tableBody.innerHTML = ""; // Clear current table
+
+        if (leadsToShow.length === 0) {
+            renderEmpty();
+        } else {
+            leadsToShow.forEach(lead => renderRow(lead));
+        }
+
+        renderPaginationControls();
+    }
+
+    // 3. Render Single Row
+    function renderRow(lead) {
+        const row = document.createElement("tr");
+        row.className = "hover:bg-blue-50/30 transition-colors group animate-fade-in";
+
+        let dateDisplay = formatDate(lead.fecha);
+
+        row.innerHTML = `
+                <td class="py-4 px-6">
+                    <div class="font-bold text-slate-900">${lead.nombre || "Sin Nombre"}</div>
+                </td>
+                <td class="py-4 px-6 text-sm text-slate-500">${lead.telefono || "N/A"}</td>
+                <td class="py-4 px-6 text-sm text-slate-500">${lead.email || "Sin Email"}</td>
+                <td class="py-4 px-6 text-xs text-slate-500 max-w-[200px] truncate" title="${lead.acepto}">${lead.acepto || "N/A"}</td>
+                <td class="py-4 px-6 text-xs text-slate-500 max-w-[150px] truncate" title="${lead.form_name}">${lead.form_name || "N/A"}</td>
+                <td class="py-4 px-6 text-sm text-slate-500 whitespace-nowrap">${dateDisplay}</td>
+                <td class="py-4 px-6">
+                    <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded inline-block max-w-[150px] truncate text-ellipsis" title="${lead.campana}">${lead.campana || "General"}</span>
+                </td>
+            `;
+        tableBody.appendChild(row);
+    }
+
+    // 4. Update Stats (Dynamic)
+    function updateStats(leads) {
+        // Total
+        // Total
+        document.getElementById("stat-total-leads").innerText = leads.length.toLocaleString();
+
+        // Leads Today
+        const now = new Date();
+        const todayString = now.toDateString();
+
+        const leadsToday = leads.filter(l => {
+            if (!l.fecha) return false;
+            const d = new Date(l.fecha);
+            return !isNaN(d) && d.toDateString() === todayString;
+        }).length;
+        document.getElementById("stat-leads-today").innerText = leadsToday.toLocaleString();
+
+        // Last 7 Days
+        const sevenDaysAgo = new Date();
+        sevenDaysAgo.setDate(now.getDate() - 7);
+        // Reset time to start of day for accurate comparison
+        sevenDaysAgo.setHours(0, 0, 0, 0);
+
+        const leadsLast7Days = leads.filter(l => {
+            if (!l.fecha) return false;
+            const d = new Date(l.fecha);
+            // Check if date is valid and greater than or equal to 7 days ago
+            return !isNaN(d) && d >= sevenDaysAgo;
+        }).length;
+        document.getElementById("stat-last-7-days").innerText = leadsLast7Days.toLocaleString();
+    }
+
+    // 5. Search Filtering
+    function handleSearch() {
+        const query = searchInput.value.toLowerCase();
+
+        filteredLeads = allLeads.filter(lead => {
+            const name = (lead.nombre || "").toLowerCase();
+            const email = (lead.email || "").toLowerCase();
+            const phone = (lead.telefono || "").toString().toLowerCase();
+            const campaign = (lead.campana || "").toLowerCase();
+            const formName = (lead.form_name || "").toLowerCase();
+
+            return name.includes(query) || email.includes(query) || phone.includes(query) || campaign.includes(query) || formName.includes(query);
+        });
+
+        renderPage(1); // Reset to page 1 on search
+    }
+
+    // 6. Pagination Controls
+    function renderPaginationControls() {
+        const totalItems = filteredLeads.length;
+        const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+        const startItem = (currentPage - 1) * ITEMS_PER_PAGE + 1;
+        const endItem = Math.min(currentPage * ITEMS_PER_PAGE, totalItems);
+
+        // HTML
+        let buttons = ``;
+
+        // Prev Button
+        buttons += `<button onclick="renderPage(${currentPage - 1})" 
+            class="px-3 py-1 rounded-lg border border-slate-200 text-xs font-bold text-slate-500 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            ${currentPage === 1 ? 'disabled' : ''}>Anterior</button>`;
+
+        // Page Numbers (Simplified logic: show current, prev, next)
+        // For extremely large lists, you'd want ellipsis logic, but for <500 items this is okay to maybe just show range or simple numbers
+        // Just showing current page status in text is cleaner for dashboard widgets
+        buttons += `<span class="px-2 text-xs font-bold text-slate-600">Pág ${currentPage} de ${totalPages || 1}</span>`;
+
+        // Next Button
+        buttons += `<button onclick="renderPage(${currentPage + 1})" 
+            class="px-3 py-1 rounded-lg border border-slate-200 text-xs font-bold text-slate-500 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            ${currentPage === totalPages || totalPages === 0 ? 'disabled' : ''}>Siguiente</button>`;
+
+        paginationContainer.innerHTML = `
+            <span class="text-xs text-slate-400">Mostrando <strong>${totalItems > 0 ? startItem : 0}-${endItem}</strong> de <strong>${totalItems}</strong></span>
+            <div class="flex gap-2 items-center">
+                ${buttons}
+            </div>
+        `;
+    }
+
+    // 7. Export to CSV
+    function exportTableToCSV() {
+        if (!allLeads || allLeads.length === 0) {
+            alert("No hay datos para exportar.");
+            return;
+        }
+
+        // Define headers
+        const headers = ["Nombre", "Telefono", "Correo", "Acepto", "Form_Name", "Fecha_Hora", "Campaña"];
+
+        // Map data to CSV rows
+        const csvRows = [headers.join(",")];
+
+        allLeads.forEach(lead => {
+            const row = [
+                `"${lead.nombre || ''}"`,
+                `"${lead.telefono || ''}"`,
+                `"${lead.email || ''}"`,
+                `"${lead.acepto || ''}"`,
+                `"${lead.form_name || ''}"`,
+                `"${formatDate(lead.fecha) || ''}"`,
+                `"${lead.campana || ''}"`
+            ];
+            csvRows.push(row.join(","));
+        });
+
+        // Create file
+        const csvContent = "data:text/csv;charset=utf-8," + csvRows.join("\n");
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "leadhub_export.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // Helper: Date Formatter
+    function formatDate(dateString) {
+        if (!dateString) return "N/A";
+        try {
+            const d = new Date(dateString);
+            if (!isNaN(d.getTime())) {
+                const day = d.getDate().toString().padStart(2, '0');
+                const monthNames = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+                const month = monthNames[d.getMonth()];
+                const year = d.getFullYear();
+                return `${day} ${month} ${year}`;
+            }
+        } catch (e) { }
+        return dateString;
+    }
+
+    // Render Helpers
+    function renderLoading() {
+        tableBody.innerHTML = `<tr><td colspan="7" class="py-12 text-center"><div class="inline-block w-8 h-8 border-4 border-blue-100 border-t-blue-600 rounded-full animate-spin mb-2"></div><p class="text-sm text-slate-400">Cargando...</p></td></tr>`;
+    }
+    function renderError(msg) {
+        tableBody.innerHTML = `<tr><td colspan="7" class="py-8 text-center text-red-500">${msg}</td></tr>`;
+    }
+    function renderEmpty() {
+        tableBody.innerHTML = `<tr><td colspan="7" class="py-8 text-center text-slate-400">No se encontraron leads.</td></tr>`;
+    }
+</script>
+<style>
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 0.3s ease-out forwards;
+    }
+</style>

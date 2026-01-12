@@ -1,0 +1,109 @@
+<!-- SUBSCRIPTION STATE: NO PLAN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+</style>
+
+<div class="w-full">
+
+    <!-- Header -->
+    <header class="mb-10">
+        <h1 class="text-3xl font-extrabold text-slate-900 mb-2 tracking-tight">Tu Suscipción</h1>
+        <p class="text-slate-500 text-sm">Gestiona tu plan y método de pago.</p>
+    </header>
+
+    <div class="w-full">
+
+        <!-- Status Card -->
+        <div
+            class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+            <div class="flex items-center gap-6">
+                <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center text-3xl">
+                    ☁️
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">Plan Gratuito</h2>
+                    <p class="text-sm text-slate-500">Actualmente no tienes un plan activo.</p>
+                </div>
+            </div>
+            <a href="https://capturaleads.com/precios" target="_blank"
+                class="px-6 py-3 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 transition-all active:scale-95 whitespace-nowrap">
+                Ver Planes y Precios
+            </a>
+        </div>
+
+        <!-- Plan Comparison (3 Columns) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Basic Promo -->
+            <div
+                class="bg-white rounded-xl p-6 border border-gray-100 hover:border-blue-200 transition-colors flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-bold text-slate-900">Plan Básico</h3>
+                    <span class="text-blue-600 font-bold">$699<span
+                            class="text-xs text-gray-400 font-normal">/mes</span></span>
+                </div>
+                <ul class="space-y-2 mb-6 flex-grow">
+                    <li class="flex items-center gap-2 text-sm text-slate-600">
+                        <span class="text-green-500">✓</span> 1 Embudo de ventas
+                    </li>
+                    <li class="flex items-center gap-2 text-sm text-slate-600">
+                        <span class="text-green-500">✓</span> 500 Leads/mes
+                    </li>
+                </ul>
+                <a href="https://capturaleads.com/contacto/"
+                    class="block text-center w-full py-2 rounded-lg border border-blue-600 text-blue-600 font-bold text-sm hover:bg-blue-50 transition-colors">Elegir
+                    Básico</a>
+            </div>
+
+            <!-- Pro Promo -->
+            <div
+                class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-6 text-white shadow-lg shadow-blue-900/20 relative flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="font-bold text-white">Plan Profesional</h3>
+                        <span class="text-xs text-blue-200 bg-blue-800/50 px-2 py-0.5 rounded">Recomendado</span>
+                    </div>
+                    <span class="text-white font-bold">$2,999<span
+                            class="text-xs text-blue-200 font-normal">/mes</span></span>
+                </div>
+                <ul class="space-y-2 mb-6 flex-grow">
+                    <li class="flex items-center gap-2 text-sm text-blue-100">
+                        <span class="text-white">✓</span> 5 Embudos de ventas
+                    </li>
+                    <li class="flex items-center gap-2 text-sm text-blue-100">
+                        <span class="text-white">✓</span> 2,000 Leads/mes
+                    </li>
+                </ul>
+                <a href="https://capturaleads.com/contacto/"
+                    class="block text-center w-full py-2 rounded-lg bg-white text-blue-700 font-bold text-sm hover:bg-blue-50 transition-colors">Elegir
+                    Profesional</a>
+            </div>
+
+            <!-- Enterprise Promo -->
+            <div class="bg-slate-900 rounded-xl p-6 border border-slate-800 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-bold text-amber-500">Empresarial</h3>
+                    <span class="text-white font-bold">$4,999<span
+                            class="text-xs text-slate-500 font-normal">/mes</span></span>
+                </div>
+                <ul class="space-y-2 mb-6 flex-grow">
+                    <li class="flex items-center gap-2 text-sm text-slate-300">
+                        <span class="text-amber-500">✓</span> 10 Embudos de ventas
+                    </li>
+                    <li class="flex items-center gap-2 text-sm text-slate-300">
+                        <span class="text-amber-500">✓</span> Leads Ilimitados
+                    </li>
+                </ul>
+                <a href="https://capturaleads.com/contacto/"
+                    class="block text-center w-full py-2 rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-bold text-sm hover:bg-slate-700 hover:text-white transition-colors">Contactar</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
