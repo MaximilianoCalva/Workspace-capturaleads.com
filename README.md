@@ -235,3 +235,214 @@ Footer compacto para el workspace:
 - Compatible con WordPress/Elementor
 - Sin conflictos de estilos
 - Optimizado para performance
+
+---
+---
+
+# 📑 DOCUMENTACIÓN EXTENDIDA
+
+---
+
+## 1. 🔄 Historial de Cambios (Changelog)
+
+### v2.2.0 - 10 de enero de 2026
+
+#### ✨ Nuevas Características
+- **Sistema de pestañas**: Acceso workspace con tabs para alternar entre login y registro
+- **Footer workspace**: Footer compacto con links legales y copyright
+- **Vista de leads**: Dashboard completo con tabla, filtros, estadísticas y paginación
+- **Sidebar optimizado**: Menú de navegación simplificado como snippet puro
+
+#### 🎨 Mejoras de Diseño
+- **Headers ultra-compactos**: Reducción de altura de 60px a 40px (35% menos espacio)
+- **Color sólido**: Eliminación de gradientes, uso exclusivo de #2966ff
+- **Sin padding externo**: Todos los snippets sin espaciado para que Elementor controle el layout
+- **Clases únicas**: Prefijos específicos para evitar conflictos CSS
+
+#### 🔧 Optimizaciones Técnicas
+- **Snippets puros**: Eliminada estructura HTML completa (DOCTYPE, head, body, script)
+- **CSS inline encapsulado**: Cada snippet con sus estilos aislados
+- **Ancho 100%**: Adaptable al contenedor de Elementor
+- **URLs actualizadas**: Migración de dashboard.capturaleads.com a workspace.capturaleads.com
+- **Logout WordPress**: URL con nonce de seguridad para cerrar sesión
+
+#### 📦 Componentes Finales
+1. `header-workspace-logged-out.html` - Header sin sesión (40px altura)
+2. `header-workspace-logged-in.html` - Header con sesión (40px altura)
+3. `footer-workspace.html` - Footer compacto
+4. `acceso-workspace-logged-out.html` - Login/Registro con pestañas
+5. `acceso-workspace-logged-in.html` - Acceso directo al workspace
+6. `sidebar-dashboard.html` - Menú de navegación lateral
+7. `vista-leads.html` - Dashboard de gestión de leads
+
+#### 🔄 Cambios de Nomenclatura
+- "Dashboard" → "Workspace" en todos los textos y URLs
+- Clases CSS con prefijos únicos:
+  - `.capturaleads-header-logged-out`
+  - `.capturaleads-header-logged-in-v2`
+  - `.workspace-footer`
+  - `.workspace-access-logged-out`
+  - `.workspace-access-logged-in`
+  - `.workspace-sidebar`
+  - `.leads-dashboard-view`
+
+#### 🎯 Compatibilidad
+- ✅ WordPress 5.0+
+- ✅ Elementor 3.0+
+- ✅ Responsive: Desktop, Tablet, Mobile
+- ✅ Navegadores: Chrome, Firefox, Safari, Edge
+
+#### 📝 Notas de Uso
+- Copiar HTML completo en widget HTML de Elementor
+- No requiere CSS externo
+- No requiere JavaScript externo (excepto acceso-workspace-logged-out.html para pestañas)
+- Elementor maneja todo el espaciado y layout
+
+### v2.1.0 - 9 de enero de 2026
+- Headers de autenticación creados
+- Integración con shortcodes WordPress
+- Color de marca actualizado
+
+### v2.0.0 - Enero 2026
+- Lanzamiento inicial del workspace
+- Componentes base creados
+
+---
+
+## 2. 📚 Especificaciones del Workspace
+
+### 📊 Estructura del Workspace
+
+Tres secciones principales para organizar el trabajo:
+1. **Lead Hub** (Prospectos)
+2. **Performance View** (Métricas)
+3. **Creative Studio** (Contenido)
+
+### 1. 📥 Lead Hub - Buzón de Entrada de Prospectos
+
+#### Plan Básico - Panel de Servicio Único
+**Una vista limpia enfocada en una sola fuente de leads.**
+
+**Características:**
+- ✅ Flujo de entrada en tiempo real
+- ✅ Estadísticas básicas de conversión
+- ✅ Lista completa de contactos de tu Landing Page
+- ✅ Filtros por fecha y estado
+- ✅ Exportación de datos
+
+#### Plan Pro/Empresarial - Panel Multi-Servicio
+**El Workspace se divide en "Islas de Servicio".**
+Si tienes una página para "Venta de Departamentos" y otra para "Renta de Oficinas", cada una tiene su propio contenedor de leads.
+
+**Características:**
+- ✅ Separación por servicio/producto
+- ✅ Estadísticas independientes por isla
+- ✅ Vista consolidada opcional
+- ✅ Gestión multi-formulario
+- ✅ Comparativa entre servicios
+
+### 2. 📈 Performance View - Métricas de Conversión
+
+**Visualización clara de:**
+- Cuánta gente entró vs. Cuánta dejó sus datos
+- Tasa de conversión por servicio
+- Tendencias semanales/mensuales
+- Fuentes de tráfico (Meta Ads, Google Ads, Orgánico)
+
+### 3. 🎨 Creative Studio - Tu Agencia de Contenido Integrada
+
+**El "Valor Agregado" que te Despega de la Competencia**
+
+#### Apartado de Creación de Publicidad
+Un espacio dentro del Workspace donde el cliente puede gestionar o solicitar los artes (imágenes, copies/textos) para sus campañas.
+
+**Funcionalidades:**
+- ✅ Galería de diseños para anuncios
+- ✅ Biblioteca de copies probados
+- ✅ Solicitud de nuevos diseños
+- ✅ Historial de creatividades
+- ✅ A/B testing de anuncios
+
+#### Módulo de Video Marketing
+Un área dedicada a la edición de video para anuncios.
+
+**Funcionalidades:**
+- ✅ Biblioteca de videos de anuncios
+- ✅ Solicitud de edición de video
+- ✅ Templates de video pre-diseñados
+- ✅ Métricas de rendimiento por video
+
+### 🎯 Beneficios por Plan
+
+#### Plan Básico ($499/mes)
+- ✅ 1 Isla de Servicio (Lead Hub)
+- ✅ Performance View básico
+- ✅ Acceso a galería de diseños
+- ✅ 2 solicitudes de diseño/mes
+
+#### Plan Profesional ($999/mes)
+- ✅ 3 Islas de Servicio (Lead Hub)
+- ✅ Performance View avanzado
+- ✅ Creative Studio completo
+- ✅ 5 solicitudes de diseño/mes
+- ✅ 2 videos editados/mes
+
+#### Plan Empresarial ($1,499/mes)
+- ✅ 5 Islas de Servicio (Lead Hub)
+- ✅ Performance View premium con BI
+- ✅ Creative Studio ilimitado
+- ✅ Diseños ilimitados
+- ✅ 5 videos editados/mes
+- ✅ Consultoría creativa mensual
+
+### 🚀 Flujo de Trabajo
+
+**Mañana (9:00 AM):**
+1. Abrir Workspace
+2. Ver nuevos leads en Lead Hub
+3. Revisar Performance View
+4. Contactar leads "Nuevos"
+
+**Tarde (3:00 PM):**
+5. Revisar Creative Studio
+6. Solicitar nuevo diseño
+7. Aprobar video editado
+
+**Noche (8:00 PM):**
+8. Exportar leads de la semana
+9. Programar campaña de remarketing
+10. Cerrar con métricas claras
+
+### 📊 Especificaciones Técnicas
+
+#### 1. Lead Hub
+- Base de datos MySQL con tablas por servicio
+- Sistema de filtros avanzados
+- Exportación a CSV/Excel
+
+#### 2. Performance View
+- Integración con Google Analytics
+- Gráficos con Chart.js o D3.js
+- Cálculo automático de métricas
+
+#### 3. Creative Studio
+- Galería de imágenes con tags
+- Sistema de solicitudes (tickets)
+- Integración con Canva (opcional)
+
+### 📱 Acceso y Seguridad
+
+#### Autenticación
+- Login con email y contraseña
+- 2FA opcional
+- Recuperación de contraseña
+- Sesiones seguras
+
+#### Permisos
+- **Admin:** Acceso completo
+- **Vendedor:** Solo Lead Hub y Performance
+- **Marketing:** Solo Creative Studio
+- **Viewer:** Solo lectura
+
+---
+**Documento consolidado el:** 19 de enero de 2026
