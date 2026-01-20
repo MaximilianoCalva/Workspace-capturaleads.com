@@ -1,40 +1,43 @@
 // -----------------------------------------------------------------------------
-// GOOGLE APPS SCRIPT CODE
+// GOOGLE APPS SCRIPT CODE - CAPTURA LEADS BACKEND (FLEXIBLE)
 // Archivo: Code.gs (en el editor de scripts de su Google Sheet)
 // -----------------------------------------------------------------------------
 
 function doGet(e) {
-  // 1. Configuración
-  const SHEET_TAB_NAME = "Captación SaaS"; // Nombre exacto de la pestaña
-
   try {
-    // 2. Obtener la hoja
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = ss.getSheetByName(SHEET_TAB_NAME);
+    // 1. Obtener el parámetro 'sheet' de la URL (ej: ?sheet=Captación SaaS)
+    // Si no se especifica, usa una por defecto si quieres, o devuelve error.
+    let sheetName = e.parameter.sheet;
 
-    if (!sheet) {
-      return responseError("No se encontró la pestaña: " + SHEET_TAB_NAME);
+    // Default si no se pasa nada (para compatibilidad con tu sistema actual si es necesario)
+    if (!sheetName) {
+      sheetName = "Captación SaaS";
     }
 
-    // 3. Leer datos
+    // 2. Obtener la hoja
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName(sheetName);
+
+    if (!sheet) {
+      return responseError("No se encontró la pestaña en el Sheet: " + sheetName);
+    }
+
+    // 3. Leer datos (DataRange toma todo lo que tenga datos, sin límite de filas)
     const data = sheet.getDataRange().getValues();
-    
+
     if (data.length < 2) {
       // Si solo hay encabezados o está vacía
-      return responseJSON([]); 
+      return responseJSON([]);
     }
 
     const headers = data[0]; // Primera fila (Encabezados)
     const rows = data.slice(1); // El resto de filas (Datos)
 
-    // 4. Mapeo de Columnas (Google Sheet -> JSON Key)
-    // Ajusta las keys según como quieres recibirlas en el HTML
+    // 4. Mapeo Flexible (Detecta columnas comunes)
     const formattedData = rows.map(row => {
       let item = {};
-      
-      // Buscamos el índice de cada columna por nombre para ser más seguros
-      // Si cambias el orden en el sheet, esto sigue funcionando
-      
+
+      // Mapeo básico de columnas esperadas
       item.nombre = getValue(row, headers, "Nombre");
       item.telefono = getValue(row, headers, "Telefono");
       item.email = getValue(row, headers, "Correo");
@@ -42,7 +45,10 @@ function doGet(e) {
       item.form_name = getValue(row, headers, "Form_Name");
       item.fecha = getValue(row, headers, "Fecha_Hora");
       item.campana = getValue(row, headers, "Campaña");
-      item.estado = "Nuevo"; // Valor por defecto para el frontend si no existe en el sheet
+      item.estado = getValue(row, headers, "Estado") || "Nuevo";
+
+      // Metadatos útiles
+      item.source = sheetName;
 
       return item;
     });
@@ -57,8 +63,10 @@ function doGet(e) {
 
 // Helper para obtener valor buscando el header
 function getValue(row, headers, headerName) {
-  const index = headers.indexOf(headerName);
-  if (index === -1) return ""; // Si no encuentra la columna devuelve vacío
+  // Case insensitive search para robustez
+  const index = headers.findIndex(h => h.toString().toLowerCase() === headerName.toLowerCase());
+
+  if (index === -1) return "";
   return row[index];
 }
 
@@ -75,15 +83,3 @@ function responseError(message) {
     .createTextOutput(JSON.stringify({ status: "error", message: message }))
     .setMimeType(ContentService.MimeType.JSON);
 }
-
-// -----------------------------------------------------------------------------
-// INSTRUCCIONES DE DESPLIEGUE:
-// 1. Ir a Extensiones > Apps Script
-// 2. Pegar este código.
-// 3. Arriba a la derecha: "Implementar" > "Nueva implementación".
-// 4. Tipo: "Aplicación web".
-// 5. Descripción: "API LeadHub".
-// 6. Ejecutar como: "Yo" (Tu usuario).
-// 7. Quién tiene acceso: "Cualquier usuario" (Importante para que el HTML pueda leerlo).
-// 8. Copiar la URL generada (Web App URL) y compartirla.
-// -----------------------------------------------------------------------------
